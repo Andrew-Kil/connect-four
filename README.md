@@ -6,10 +6,15 @@ decide who plays first:
   - math.random
 - player 1 starts first
 
-grid:
+board:
 
 - 7 columns
 - 6 rows
+
+- multi-dimensional array
+  - 0 for empty spaces
+  - 1 for player 1
+  - 2 for player 2
 
 win-condition:
 

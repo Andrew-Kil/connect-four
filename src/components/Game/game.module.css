@@ -1,0 +1,14 @@
+.boardColumn {
+  margin: 15px;
+}
+
+.boardRow {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.boardSpot {
+  margin: 40px;
+  font-size: 24px;
+  font-family: Georgia, serif;
+}
