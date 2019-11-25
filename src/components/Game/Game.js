@@ -5,21 +5,11 @@ import s from "./game.module.css";
 class Game extends Component {
   state = {
     currentPlayer: 1,
-    board: [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
-    ]
+    board: Array(7).fill(Array(6).fill(0))
   };
   dropChecker = column => {
     const { board } = this.state;
     console.log(board[board.length - 1][column - 1]);
-    // check current column
-    // if last row of column is not occupied, occupy it with 1 or 2 (player 1 or 2)
-    // else, check the row above current row
   };
   render() {
     const { board } = this.state;
