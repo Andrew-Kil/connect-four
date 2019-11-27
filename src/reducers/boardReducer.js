@@ -33,12 +33,11 @@ const boardReducer = (prevState = initBoard, action) => {
 
     findTargetIndex = currentColumn.reverse().findIndex(val => val === 0);
     // since we want to iterate through the array from end to start, reversing the array and finding the first instance of 0 will allow us to find the target (however, the index will not be correct since it is in reverse order)
-    // the tracker "i" is actually the reverse index of what we really want, which means that we need to use the length of the currentColumn array and subtract that by "i"
+    // to get the correct index, we can use the length of the array - 1 and subtract findTargetIndex to get the correct index
 
     if (findTargetIndex === null) {
       return prevState;
     }
-
     const targetIndex = currentColumn.length - 1 - findTargetIndex;
     // use this targetIndex to swap the 0 in the matrix with a 1 or 2
   }
