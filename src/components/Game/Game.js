@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { playTurn } from "../../actions";
 import s from "./game.module.css";
 
 class Game extends Component {
-  dropChecker = column => {
-    const { board } = this.props;
-    console.log(board[board.length - 1][column - 1]);
+  handleButtonClick = idx => {
+    this.props.dispatch(playTurn(this.props.player, idx));
   };
   render() {
     const { board } = this.props;
-    const buttonColumns = [1, 2, 3, 4, 5, 6, 7];
     return (
       <>
         <div>
           <div>
-            {buttonColumns.map((column, idx) => {
+            {board.map((_row, idx) => {
               return (
                 <button
                   key={idx}
                   className={`${s.boardColumn}`}
-                  onClick={() => this.dropChecker(idx)}>
+                  onClick={() => this.handleButtonClick(idx)}>
                   Column {idx}
                 </button>
               );
