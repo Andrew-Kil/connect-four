@@ -1,5 +1,4 @@
-import PLAY_TURN from "./constants";
-import DROP_CHECKER from "./constants";
+import { PLAY_TURN } from "./constants";
 
 export const playTurn = (player, column) => {
   return {
@@ -8,13 +7,5 @@ export const playTurn = (player, column) => {
       player,
       column
     }
-  };
-};
-
-export const dropChecker = (player, column) => {
-  return {
-    type: DROP_CHECKER,
-    column,
-    player
   };
 };
