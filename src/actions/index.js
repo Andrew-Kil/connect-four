@@ -1,8 +1,8 @@
-import { DROP_CHECKER } from "./constants";
+import { PLAY_TURN } from "./constants";
 
-export const dropChecker = (player, column) => {
+export const playTurn = (player, column) => {
   return {
-    type: DROP_CHECKER,
+    type: PLAY_TURN,
     payload: {
       player,
       column
