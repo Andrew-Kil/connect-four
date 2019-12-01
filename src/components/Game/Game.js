@@ -4,8 +4,11 @@ import { playTurn } from "../../actions";
 import s from "./game.module.css";
 
 class Game extends Component {
-  handleButtonClick = idx => {
-    this.props.dispatch(playTurn(this.props.player, idx));
+  handleButtonClick = idx => e => {
+    e.preventDefault();
+    const currentPlayer = this.props.player;
+    const selectedColumn = idx;
+    this.props.playTurn(currentPlayer, selectedColumn);
   };
   render() {
     const { board } = this.props;
@@ -18,7 +21,7 @@ class Game extends Component {
                 <button
                   key={idx}
                   className={`${s.boardColumn}`}
-                  onClick={() => this.handleButtonClick(idx)}>
+                  onClick={this.handleButtonClick(idx)}>
                   Column {idx}
                 </button>
               );
@@ -44,4 +47,10 @@ const mapStateToProps = state => ({
   player: state.player
 });
 
-export default connect(mapStateToProps)(Game);
+const mapDispatchToProps = dispatch => ({
+  playTurn: function(player, column) {
+    dispatch(playTurn(player, column));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
