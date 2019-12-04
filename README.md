@@ -1,9 +1,7 @@
 # rules
 
-decide who plays first:
+player:
 
-- flip a coin
-  - math.random
 - player 1 starts first
 
 board:
@@ -20,3 +18,16 @@ win-condition:
 
 - 4 in a row
   - vertically, horizontally, diagonally
+
+## to-do
+
+logic:
+- add diagonal win conditions
+  - atm it only accounts for downwards diagonals (left to right); need to add upwards diagonals (left to right)
+- refactor diagonal win condtions
+
+ui:
+- replace O with empty 
+- replace 1 with red token
+- replace 2 with yellow token
+- replace column buttons with ability to click anywhere on the column to drop the token
