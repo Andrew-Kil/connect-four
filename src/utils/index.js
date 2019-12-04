@@ -36,61 +36,34 @@ export const checkHorizontals = (board, player) => {
   return false;
 };
 
-// will refactor to replace hardcoded win conditions with DRY code
-// there are more diagonal win conditions, this is only 50% of them
-export const checkDiagonals = (board, player) => {
-  if (
-    (board[2][0] === player &&
-      board[3][1] === player &&
-      board[4][2] === player &&
-      board[5][3] === player) ||
-    (board[1][0] === player &&
-      board[2][1] === player &&
-      board[3][2] === player &&
-      board[4][3] === player) ||
-    (board[2][1] === player &&
-      board[3][2] === player &&
-      board[4][3] === player &&
-      board[5][4] === player) ||
-    (board[0][0] === player &&
-      board[1][1] === player &&
-      board[2][2] === player &&
-      board[3][3] === player) ||
-    (board[1][1] === player &&
-      board[2][2] === player &&
-      board[3][3] === player &&
-      board[4][4] === player) ||
-    (board[2][2] === player &&
-      board[3][3] === player &&
-      board[4][4] === player &&
-      board[5][5] === player) ||
-    (board[0][1] === player &&
-      board[1][2] === player &&
-      board[2][3] === player &&
-      board[3][4] === player) ||
-    (board[1][2] === player &&
-      board[2][3] === player &&
-      board[3][4] === player &&
-      board[4][5] === player) ||
-    (board[2][3] === player &&
-      board[3][4] === player &&
-      board[4][5] === player &&
-      board[5][6]) ||
-    (board[0][2] === player &&
-      board[1][3] === player &&
-      board[2][4] === player &&
-      board[3][5] === player) ||
-    (board[1][3] === player &&
-      board[2][4] === player &&
-      board[3][5] === player &&
-      board[4][6] === player) ||
-    (board[0][3] === player &&
-      board[1][4] === player &&
-      board[2][5] === player &&
-      board[3][6] === player)
-  ) {
-    return true;
-  } else {
-    return false;
+export const checkDownDiagonals = (board, player) => {
+  for (let row = 0; row <= 2; row++) {
+    for (let col = 0; col <= 3; col++) {
+      if (
+        board[row][col] === player &&
+        board[row + 1][col + 1] === player &&
+        board[row + 2][col + 2] === player &&
+        board[row + 3][col + 3] === player
+      ) {
+        return true;
+      }
+    }
   }
+  return false;
+};
+
+export const checkUpDiagonals = (board, player) => {
+  for (let row = 0; row <= 2; row++) {
+    for (let col = 6; col >= 3; col--) {
+      if (
+        board[row][col] === player &&
+        board[row + 1][col - 1] === player &&
+        board[row + 2][col - 2] === player &&
+        board[row + 3][col - 3] === player
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
