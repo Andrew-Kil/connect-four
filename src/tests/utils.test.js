@@ -1,4 +1,9 @@
-import { checkVerticals, checkHorizontals, checkDiagonals } from "../utils";
+import {
+  checkVerticals,
+  checkHorizontals,
+  checkDownDiagonals,
+  checkUpDiagonals
+} from "../utils";
 
 describe("checkVerticals tests", () => {
   it("should return true for vertical four in a row", () => {
@@ -88,7 +93,52 @@ describe("checkHorizontals tests", () => {
   });
 });
 
-describe("checkDiagonals tests", () => {
+describe("checkDownDiagonals tests", () => {
+  // testing for the 12 winning downwards diagonals and 12 winning upwards diagonals
+
+  // downwards diagonals
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 2, 0, 0],
+      [2, 1, 1, 0, 2, 0, 0],
+      [1, 2, 2, 1, 2, 0, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [1, 2, 1, 0, 2, 0, 0],
+      [2, 1, 1, 1, 2, 0, 0],
+      [1, 2, 2, 1, 2, 0, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [1, 2, 1, 0, 2, 0, 0],
+      [2, 1, 1, 1, 2, 0, 0],
+      [1, 2, 2, 1, 1, 0, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
   it("should return true for diagonal (down from left to right) four in a row", () => {
     const sampleBoard = [
       [1, 0, 0, 0, 0, 0, 0],
@@ -99,9 +149,123 @@ describe("checkDiagonals tests", () => {
       [1, 2, 2, 1, 1, 0, 0]
     ];
     const samplePlayer = 1;
-    const sampleOutput = checkDiagonals(sampleBoard, samplePlayer);
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
     expect(sampleOutput).toEqual(true);
   });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [2, 1, 1, 0, 0, 0, 0],
+      [1, 2, 2, 1, 0, 0, 0],
+      [2, 1, 1, 2, 1, 0, 0],
+      [1, 2, 2, 1, 1, 0, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0],
+      [2, 1, 1, 0, 0, 0, 0],
+      [1, 2, 2, 1, 0, 0, 0],
+      [2, 1, 1, 2, 1, 0, 0],
+      [1, 2, 2, 1, 1, 1, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 1, 0, 0, 0, 0, 0],
+      [1, 2, 1, 0, 0, 0, 0],
+      [2, 1, 1, 1, 0, 0, 0],
+      [1, 2, 2, 2, 1, 0, 0],
+      [2, 1, 1, 2, 1, 0, 0],
+      [1, 2, 2, 1, 1, 1, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 2, 1, 0, 0, 0, 0],
+      [2, 1, 1, 1, 0, 0, 0],
+      [1, 2, 2, 2, 1, 0, 0],
+      [2, 1, 1, 2, 1, 1, 0],
+      [1, 2, 2, 1, 1, 1, 0]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 2, 0, 0, 0, 0, 0],
+      [2, 1, 1, 1, 0, 0, 0],
+      [1, 2, 2, 2, 1, 0, 0],
+      [2, 1, 1, 2, 1, 1, 0],
+      [1, 2, 2, 1, 1, 1, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 2, 0, 0, 0, 0],
+      [1, 2, 2, 2, 0, 0, 0],
+      [2, 1, 1, 1, 2, 0, 0],
+      [1, 2, 2, 2, 1, 2, 0],
+      [2, 1, 1, 2, 1, 1, 0],
+      [1, 2, 2, 1, 1, 1, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 2, 2, 2, 0, 0, 0],
+      [2, 1, 1, 1, 2, 0, 0],
+      [1, 2, 2, 2, 1, 2, 0],
+      [2, 1, 1, 2, 1, 1, 2],
+      [1, 2, 2, 1, 1, 1, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (down from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 2, 0, 0, 0],
+      [1, 0, 0, 2, 2, 0, 0],
+      [2, 1, 0, 1, 2, 2, 0],
+      [1, 2, 2, 1, 1, 2, 2],
+      [2, 1, 1, 2, 2, 1, 1],
+      [1, 2, 2, 1, 1, 2, 2]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkDownDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  // upwards diagonals
 
   it("should return true for diagonal (up from left to right) four in a row", () => {
     const sampleBoard = [
@@ -113,7 +277,161 @@ describe("checkDiagonals tests", () => {
       [1, 2, 2, 1, 1, 2, 1]
     ];
     const samplePlayer = 1;
-    const sampleOutput = checkDiagonals(sampleBoard, samplePlayer);
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 2],
+      [2, 1, 1, 0, 0, 2, 1],
+      [1, 2, 2, 0, 2, 1, 1],
+      [2, 1, 1, 2, 1, 2, 2],
+      [1, 2, 1, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [2, 1, 1, 0, 0, 2, 1],
+      [1, 2, 2, 0, 2, 1, 1],
+      [2, 1, 1, 2, 1, 2, 2],
+      [1, 2, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 1],
+      [1, 1, 0, 0, 0, 1, 2],
+      [2, 1, 1, 0, 1, 2, 1],
+      [1, 2, 2, 1, 2, 1, 1],
+      [2, 1, 2, 1, 2, 2, 2],
+      [1, 2, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 1, 0],
+      [2, 1, 1, 0, 1, 2, 1],
+      [1, 2, 2, 1, 2, 1, 1],
+      [2, 1, 1, 1, 2, 2, 2],
+      [1, 2, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [2, 1, 1, 0, 1, 2, 1],
+      [1, 2, 2, 1, 2, 1, 1],
+      [2, 1, 1, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 1, 0],
+      [1, 1, 0, 0, 1, 2, 0],
+      [2, 1, 2, 1, 1, 2, 1],
+      [1, 2, 1, 1, 2, 1, 1],
+      [2, 2, 1, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 1, 0, 0],
+      [2, 1, 2, 1, 1, 2, 1],
+      [1, 2, 1, 1, 2, 1, 1],
+      [2, 1, 1, 1, 2, 2, 2],
+      [2, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0],
+      [2, 1, 2, 1, 1, 2, 1],
+      [1, 2, 1, 1, 2, 1, 1],
+      [2, 1, 1, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 1;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 2, 0, 0],
+      [1, 1, 0, 2, 1, 0, 0],
+      [2, 1, 2, 0, 1, 2, 1],
+      [1, 2, 1, 1, 2, 1, 1],
+      [1, 1, 2, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 2, 0, 0, 0],
+      [2, 1, 2, 0, 1, 2, 1],
+      [1, 2, 1, 1, 2, 1, 1],
+      [2, 1, 2, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
+    expect(sampleOutput).toEqual(true);
+  });
+
+  it("should return true for diagonal (up from left to right) four in a row", () => {
+    const sampleBoard = [
+      [0, 0, 0, 2, 0, 0, 0],
+      [1, 1, 2, 2, 0, 0, 0],
+      [2, 2, 1, 1, 1, 2, 1],
+      [2, 2, 1, 1, 2, 1, 1],
+      [1, 1, 2, 1, 2, 2, 2],
+      [1, 1, 2, 2, 1, 2, 1]
+    ];
+    const samplePlayer = 2;
+    const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
     expect(sampleOutput).toEqual(true);
   });
 });
