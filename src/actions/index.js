@@ -1,5 +1,4 @@
-import { PLAY_TURN } from "./constants";
-import { END_TURN } from "./constants";
+import { PLAY_TURN, NEW_GAME, END_TURN } from "./constants";
 
 export const playTurn = (player, column) => {
   return {
@@ -15,6 +14,16 @@ export const endTurn = player => {
   return {
     type: END_TURN,
     payload: {
+      player
+    }
+  };
+};
+
+export const newGame = (board, player) => {
+  return {
+    type: NEW_GAME,
+    payload: {
+      board,
       player
     }
   };
