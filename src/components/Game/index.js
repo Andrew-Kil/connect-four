@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { playTurn, endTurn, newGame } from "../../actions";
-import {
-  checkVerticals,
-  checkHorizontals,
-  checkDownDiagonals,
-  checkUpDiagonals
-} from "../../utils";
+import { isWinner } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
@@ -26,12 +21,7 @@ class Game extends Component {
   };
 
   checkBoardForWinner = (board, player) => {
-    if (
-      checkVerticals(board, player) ||
-      checkHorizontals(board, player) ||
-      checkDownDiagonals(board, player) ||
-      checkUpDiagonals(board, player)
-    ) {
+    if (isWinner(board, player)) {
       alert("winner winner chicken dinner");
       this.props.newGame(board, player);
     }
