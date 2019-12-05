@@ -5,19 +5,19 @@ import { isWinner } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
-  handleButtonClick = idx => e => {
+  handleButtonClick = idx => async e => {
     e.preventDefault();
     const { player, board, playTurn, endTurn } = this.props,
       currentPlayer = player,
       currentColumn = idx,
       selectedColumn = board.map(row => row[currentColumn]);
     if (selectedColumn.some(value => value === 0)) {
-      playTurn(currentPlayer, currentColumn);
-      endTurn(currentPlayer);
+      await playTurn(currentPlayer, currentColumn);
     } else {
       alert("column is full. please choose a different column");
     }
-    this.checkBoardForWinner(board, player);
+    this.checkBoardForWinner(this.props.board, this.props.player);
+    endTurn(currentPlayer);
   };
 
   checkBoardForWinner = (board, player) => {
