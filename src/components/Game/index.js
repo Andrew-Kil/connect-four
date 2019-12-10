@@ -1,21 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { playTurn, endTurn, newGame } from "../../actions";
-import { isWinner } from "../../utils";
+import { isWinner, isColumnAvailable } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
   handleButtonClick = idx => async e => {
     e.preventDefault();
     const { player, board, playTurn, endTurn } = this.props,
-      currentPlayer = player,
-      currentColumn = idx,
-      selectedColumn = board.map(row => row[currentColumn]);
-    if (selectedColumn.some(value => value === 0)) {
-      await playTurn(currentPlayer, currentColumn);
-    } else {
-      alert("column is full. please choose a different column");
-    }
+      currentPlayer = player;
+    if (!isColumnAvailable(board, idx)) return;
+    await playTurn(currentPlayer, idx);
     this.checkBoardForWinner(this.props.board, this.props.player);
     endTurn(currentPlayer);
   };
@@ -29,29 +24,32 @@ class Game extends Component {
 
   render() {
     const { board } = this.props;
-    const buttonColumns = [...Array(7).keys()].map(num => num + 1);
     return (
       <>
-        <div>
-          <div>
-            {buttonColumns.map((column, idx) => (
-              <button
-                key={idx}
-                className={`${s.boardColumn}`}
-                onClick={this.handleButtonClick(idx)}>
-                Column {column}
-              </button>
+        <div>Turn: Player {this.props.player}</div>
+        <div className={`${s.board}`}>
+          <div className={`${s.boardGrid}`}>
+            {board.map((row, rowIdx) => (
+              <div key={rowIdx} className={`${s.boardRow}`}>
+                {row.map((spot, spotIdx) => (
+                  <span
+                    key={spotIdx}
+                    className={
+                      spot === 0
+                        ? `${s.free} ${s.circle}`
+                        : spot === 1
+                        ? `${s.red} ${s.circle}`
+                        : spot === 2
+                        ? `${s.yellow} ${s.circle}`
+                        : ""
+                    }
+                    onClick={this.handleButtonClick(spotIdx)}>
+                    {""}
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
-          {board.map((row, idx) => (
-            <div key={idx} className={`${s.boardRow}`}>
-              {row.map((spot, idx) => (
-                <span key={idx} className={`${s.boardSpot}`}>
-                  {spot}
-                </span>
-              ))}
-            </div>
-          ))}
         </div>
       </>
     );
