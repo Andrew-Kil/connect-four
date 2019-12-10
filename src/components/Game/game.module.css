@@ -3,6 +3,7 @@
   width: 50%;
   margin: auto;
   padding: 20px;
+  border: 2px solid black;
 }
 
 .boardRow {
@@ -13,6 +14,8 @@
 }
 
 .circle {
+  background: white;
+  border: 2px solid black;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -32,6 +35,36 @@
   background: red;
 }
 
+.red:hover {
+  background: red;
+}
+
 .yellow {
   background: yellow;
+}
+
+.yellow:hover {
+  background: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+  .boardGrid {
+    width: 80%;
+  }
+
+  .circle {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .boardGrid {
+    width: 70%;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+  }
 }
