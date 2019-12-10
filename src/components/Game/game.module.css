@@ -1,14 +1,37 @@
-.boardColumn {
-  margin: 15px;
+.boardGrid {
+  background: #2774f8;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
 }
 
 .boardRow {
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.boardSpot {
-  margin: 40px;
-  font-size: 24px;
-  font-family: Georgia, serif;
+.circle {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+}
+
+.circle:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.free {
+  background: white;
+}
+
+.red {
+  background: red;
+}
+
+.yellow {
+  background: yellow;
 }
