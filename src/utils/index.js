@@ -1,3 +1,6 @@
+export const isColumnAvailable = (board, currentColumn) =>
+  board.map(row => row[currentColumn]).some(value => value === 0);
+
 export const checkVerticals = (board, player) => {
   const mapCallback = row => row[currentColumnIdx];
   const everyCallback = value => value === player;
