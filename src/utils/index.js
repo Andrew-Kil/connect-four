@@ -39,51 +39,38 @@ export const checkHorizontals = (board, player) => {
   return false;
 };
 
-const downDiagonalConditions = (board, player, row, col) => {
-  return (
-    board[row][col] === player &&
-    board[row + 1][col + 1] === player &&
-    board[row + 2][col + 2] === player &&
-    board[row + 3][col + 3] === player
-  );
-};
+const downDiagonalConditions = (board, player, row, col) =>
+  board[row][col] === player &&
+  board[row + 1][col + 1] === player &&
+  board[row + 2][col + 2] === player &&
+  board[row + 3][col + 3] === player;
 
 export const checkDownDiagonals = (board, player) => {
   for (let row = 0; row <= 2; row++) {
     for (let col = 0; col <= 3; col++) {
-      if (downDiagonalConditions(board, player, row, col)) {
-        return true;
-      }
+      if (downDiagonalConditions(board, player, row, col)) return true;
     }
   }
   return false;
 };
 
-const upDiagonalConditions = (board, player, row, col) => {
-  return (
-    board[row][col] === player &&
-    board[row + 1][col - 1] === player &&
-    board[row + 2][col - 2] === player &&
-    board[row + 3][col - 3] === player
-  );
-};
+const upDiagonalConditions = (board, player, row, col) =>
+  board[row][col] === player &&
+  board[row + 1][col - 1] === player &&
+  board[row + 2][col - 2] === player &&
+  board[row + 3][col - 3] === player;
 
 export const checkUpDiagonals = (board, player) => {
   for (let row = 0; row <= 2; row++) {
     for (let col = 6; col >= 3; col--) {
-      if (upDiagonalConditions(board, player, row, col)) {
-        return true;
-      }
+      if (upDiagonalConditions(board, player, row, col)) return true;
     }
   }
   return false;
 };
 
-export const isWinner = (board, player) => {
-  return (
-    checkVerticals(board, player) ||
-    checkHorizontals(board, player) ||
-    checkDownDiagonals(board, player) ||
-    checkUpDiagonals(board, player)
-  );
-};
+export const isWinner = (board, player) =>
+  checkVerticals(board, player) ||
+  checkHorizontals(board, player) ||
+  checkDownDiagonals(board, player) ||
+  checkUpDiagonals(board, player);
