@@ -5,7 +5,7 @@ import { isWinner, isColumnAvailable } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
-  handleButtonClick = idx => async e => {
+  handleCircleClick = idx => async e => {
     e.preventDefault();
     const { player, board, playTurn, endTurn } = this.props,
       currentPlayer = player;
@@ -15,9 +15,14 @@ class Game extends Component {
     endTurn(currentPlayer);
   };
 
+  handleNewGameClick = () => e => {
+    const { newGame } = this.props;
+    newGame();
+  };
+
   checkBoardForWinner = (board, player) => {
     if (isWinner(board, player)) {
-      alert("winner winner chicken dinner");
+      alert(`Player ${this.props.player} wins!!!`);
       this.props.newGame(board, player);
     }
   };
@@ -43,14 +48,17 @@ class Game extends Component {
                         ? `${s.yellow} ${s.circle}`
                         : ""
                     }
-                    onClick={this.handleButtonClick(spotIdx)}>
-                    {""}
-                  </span>
+                    onClick={this.handleCircleClick(spotIdx)}></span>
                 ))}
               </div>
             ))}
           </div>
         </div>
+        <button
+          onClick={this.handleNewGameClick()}
+          className={`${s.newGameButton}`}>
+          New Game
+        </button>
       </>
     );
   }
