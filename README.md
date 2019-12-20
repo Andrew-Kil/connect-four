@@ -18,13 +18,17 @@ win-condition:
 
 - 4 in a row
   - vertically, horizontally, diagonally
+  
+tie-condition:
+- 42 turns have been played with no 4 in a row win conditions
 
 ## to-do
 
 logic:
 - add diagonal win conditions
   - atm it only accounts for downwards diagonals (left to right); need to add upwards diagonals (left to right)
-- refactor diagonal win condtions
+- refactor diagonal win conditions
+- update win conditions to consider tie
 
 ui:
 - replace O with empty 
