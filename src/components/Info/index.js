@@ -3,16 +3,16 @@ import s from "./info.module.css";
 
 class Info extends Component {
   state = {
-    showInfoButton: false
+    showInfoText: false
   };
-  toggleClass = e => () => {
-    const currState = this.state.showInfoButton;
-    this.setState({ showInfoButton: !currState });
+  toggleClass = () => e => {
+    const currState = this.state.showInfoText;
+    this.setState({ showInfoText: !currState });
   };
   render() {
-    const { showInfoButton } = this.state;
+    const { showInfoText } = this.state;
     return (
-      <div>
+      <>
         <button
           type="submit"
           className={`${s.infoButton}`}
@@ -20,9 +20,7 @@ class Info extends Component {
           Info
         </button>
         <div
-          className={
-            showInfoButton ? `${s.showInfoText}` : `${s.hideInfoText}`
-          }>
+          className={showInfoText ? `${s.showInfoText}` : `${s.hideInfoText}`}>
           Connect 4 is a two-player game. After determining who goes first, the
           players take turns dropping red or yellow tokens into a seven-column,
           six-row grid. The pieces fall from top to bottom, occupying the next
@@ -30,7 +28,7 @@ class Info extends Component {
           connect four tokens of the same color vertically, horizontally, or
           diagonally before your opponent.
         </div>
-      </div>
+      </>
     );
   }
 }
