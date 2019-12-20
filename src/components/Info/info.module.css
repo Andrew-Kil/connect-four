@@ -1,0 +1,24 @@
+.infoButton {
+  background-color: lightgrey;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.infoButton:hover {
+  cursor: pointer;
+  background-color: darkgrey;
+}
+
+.showInfoText {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.hideInfoText {
+  display: none;
+}
