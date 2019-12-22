@@ -31,7 +31,6 @@ class Game extends Component {
     const { board } = this.props;
     return (
       <>
-        <div>Turn: Player {this.props.player}</div>
         <div className={`${s.board}`}>
           <div className={`${s.boardGrid}`}>
             {board.map((row, rowIdx) => (
@@ -55,8 +54,9 @@ class Game extends Component {
           </div>
         </div>
         <button
+          type="button"
           onClick={this.handleNewGameClick()}
-          className={`${s.newGameButton}`}>
+          className={`${s.newGameButton} btn btn-primary`}>
           New Game
         </button>
       </>

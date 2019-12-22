@@ -49,20 +49,7 @@
 }
 
 .newGameButton {
-  background-color: #2774f8;
-  font-size: 16px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  padding: 10px;
-  margin-top: 5px;
-  color: white;
-  border: 2px solid black;
-  border-radius: 10px;
-}
-
-.newGameButton:hover {
-  cursor: pointer;
-  background-color: green;
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 600px) {
