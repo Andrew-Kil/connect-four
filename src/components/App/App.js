@@ -4,8 +4,7 @@ import Game from "../Game";
 import "./App.css";
 
 const App = () => (
-  <div className="App">
-    <h1>Connect 4</h1>
+  <div className="App bg-secondary pb-5">
     <Info />
     <Game />
   </div>
