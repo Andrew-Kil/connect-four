@@ -63,7 +63,7 @@ Testing
 - [x] Horizontal win conditions
 - [x] Vertical win conditions
 - [x] Tie
-- [ ] Adjust CSS sizing of app so the height/width is consistent across browsers & different resolutions
-- [ ] Update title & favicon
+- [x] Adjust CSS sizing of app so the height/width is consistent across browsers & different resolutions
+- [x] Update title & favicon
 - [ ] Implement an option to play against AI
   - [ ] Easy: AI will randomly drop their token in an unoccupied spot
