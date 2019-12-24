@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
 import boardReducer from "./boardReducer";
 import playerReducer from "./playerReducer";
+import turnsReducer from "./turnsReducer";
 
-export default combineReducers({
+const rootReducer = combineReducers({
   board: boardReducer,
-  player: playerReducer
+  player: playerReducer,
+  turns: turnsReducer
 });
+
+export default rootReducer;

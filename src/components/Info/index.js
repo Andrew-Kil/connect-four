@@ -12,6 +12,7 @@ class Info extends Component {
   };
   render() {
     const { showInfoText } = this.state;
+    const { player, turns } = this.props;
     return (
       <div className="jumbotron bg-dark text-white rounded-0">
         <h1 className="display-4">Connect 4</h1>
@@ -35,14 +36,16 @@ class Info extends Component {
           their tokens into a seven-column, six-row grid. The pieces fall from
           top to bottom, occupying the next available space within the column.
         </div>
-        <div className="mt-3">Player {this.props.player}'s Turn</div>
+        <div className="mt-3">Player {player}'s Turn</div>
+        <div>Turns: {turns}</div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  player: state.player
+  player: state.player,
+  turns: state.turns
 });
 
 export default connect(mapStateToProps)(Info);

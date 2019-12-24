@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App.js";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import combineReducers from "./reducers";
+import rootReducer from "./reducers";
 import * as serviceWorker from "./serviceWorker";
 
 const store = createStore(
-  combineReducers,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

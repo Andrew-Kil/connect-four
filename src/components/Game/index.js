@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { playTurn, endTurn, newGame } from "../../actions";
-import { isWinner, isColumnAvailable } from "../../utils";
+import { playTurn, endTurn, newGame, incrementTurns } from "../../actions";
+import { isWinner, isTie, isColumnAvailable } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
   handleCircleClick = idx => async e => {
     e.preventDefault();
-    const { player, board, playTurn, endTurn } = this.props,
+    const {
+        player,
+        board,
+        playTurn,
+        endTurn,
+        turns,
+        incrementTurns
+      } = this.props,
       currentPlayer = player;
     if (!isColumnAvailable(board, idx)) return;
     await playTurn(currentPlayer, idx);
     this.checkBoardForWinner(this.props.board, this.props.player);
+    incrementTurns(turns);
+    this.checkBoardForTie(this.props.turns);
     endTurn(currentPlayer);
   };
 
@@ -23,6 +32,13 @@ class Game extends Component {
   checkBoardForWinner = (board, player) => {
     if (isWinner(board, player)) {
       alert(`Player ${this.props.player} wins!!!`);
+      this.props.newGame(board, player);
+    }
+  };
+
+  checkBoardForTie = (turns, board, player) => {
+    if (isTie(turns)) {
+      alert("Game is tied!!!");
       this.props.newGame(board, player);
     }
   };
@@ -66,18 +82,22 @@ class Game extends Component {
 
 const mapStateToProps = state => ({
   board: state.board,
-  player: state.player
+  player: state.player,
+  turns: state.turns
 });
 
 const mapDispatchToProps = dispatch => ({
-  playTurn: function(player, column) {
+  playTurn: (player, column) => {
     dispatch(playTurn(player, column));
   },
-  endTurn: function(player) {
+  endTurn: player => {
     dispatch(endTurn(player));
   },
-  newGame: function(board, player) {
+  newGame: (board, player) => {
     dispatch(newGame(board, player));
+  },
+  incrementTurns: turns => {
+    dispatch(incrementTurns(turns));
   }
 });
 

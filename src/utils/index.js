@@ -74,3 +74,5 @@ export const isWinner = (board, player) =>
   checkHorizontals(board, player) ||
   checkDownDiagonals(board, player) ||
   checkUpDiagonals(board, player);
+
+export const isTie = turns => (turns === 42 ? true : false);
