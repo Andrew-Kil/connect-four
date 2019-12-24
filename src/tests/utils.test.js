@@ -2,7 +2,8 @@ import {
   checkVerticals,
   checkHorizontals,
   checkDownDiagonals,
-  checkUpDiagonals
+  checkUpDiagonals,
+  isTie
 } from "../utils";
 
 describe("checkVerticals tests", () => {
@@ -433,5 +434,15 @@ describe("checkDownDiagonals tests", () => {
     const samplePlayer = 2;
     const sampleOutput = checkUpDiagonals(sampleBoard, samplePlayer);
     expect(sampleOutput).toEqual(true);
+  });
+
+  it("isTie should return true if the number of turns reaches 42 (total number of spots on the board)", () => {
+    const sampleTurnsCount = 42;
+    expect(isTie(sampleTurnsCount)).toEqual(true);
+  });
+
+  it("isTie should return false if the number of turns is not 42 (total number of spots on the board)", () => {
+    const sampleTurnsCount = 41;
+    expect(isTie(sampleTurnsCount)).toEqual(false);
   });
 });
