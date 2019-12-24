@@ -1,37 +1,69 @@
-# rules
+# Connect 4
 
-player:
+## Info
 
-- player 1 starts first
+Connect 4 is a two-player game where the objective is to connect four
+tokens of the same color vertically, horizontally, or diagonally
+before your opponent. Player 1 uses red tokens while Player 2 uses
+yellow tokens. By default, Player 1 will always go first. After
+determining who will be Player 1, the players take turns dropping
+their tokens into a seven-column, six-row grid. The pieces fall from
+top to bottom, occupying the next available space within the column.
 
-board:
+## Demo
 
-- 7 columns
-- 6 rows
+https://connect-four-react.netlify.com/
 
-- multi-dimensional array
-  - 0 for empty spaces
-  - 1 for player 1
-  - 2 for player 2
+![Connect 4 Demo](demo/connect-four-demo.gif)
 
-win-condition:
+## Installation
 
-- 4 in a row
-  - vertically, horizontally, diagonally
-  
-tie-condition:
-- 42 turns have been played with no 4 in a row win conditions
+- Node.js is required
+  - https://nodejs.org/en/download/
 
-## to-do
+```
+$ git clone https://github.com/Andrew-Kil/connect-four.git
+```
 
-logic:
-- add diagonal win conditions
-  - atm it only accounts for downwards diagonals (left to right); need to add upwards diagonals (left to right)
-- refactor diagonal win conditions
-- update win conditions to consider tie
+```
+$ cd connect-four
+```
 
-ui:
-- replace O with empty 
-- replace 1 with red token
-- replace 2 with yellow token
-- replace column buttons with ability to click anywhere on the column to drop the token
+```
+$ npm install
+```
+
+```
+$ npm start
+```
+
+## Technical Details
+
+Frontend Framework
+
+- React
+
+State management
+
+- Redux
+
+Styling
+
+- CSS modules
+- Bootstrap
+
+Testing
+
+- Jest
+
+## To-Do
+
+- [x] Diagonal win conditions
+  - 24 in total, 12 up-right diagonals and 12 down-right diagonals
+- [x] Horizontal win conditions
+- [x] Vertical win conditions
+- [x] Tie
+- [ ] Adjust CSS sizing of app so the height/width is consistent across browsers & different resolutions
+- [ ] Update title & favicon
+- [ ] Implement an option to play against AI
+  - [ ] Easy: AI will randomly drop their token in an unoccupied spot
