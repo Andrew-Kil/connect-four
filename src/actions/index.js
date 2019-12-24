@@ -1,4 +1,4 @@
-import { PLAY_TURN, NEW_GAME, END_TURN } from "./constants";
+import { PLAY_TURN, NEW_GAME, END_TURN, INCREMENT_TURNS } from "./constants";
 
 export const playTurn = (player, column) => {
   return {
@@ -19,12 +19,17 @@ export const endTurn = player => {
   };
 };
 
-export const newGame = (board, player) => {
+export const newGame = () => {
   return {
-    type: NEW_GAME,
+    type: NEW_GAME
+  };
+};
+
+export const incrementTurns = turns => {
+  return {
+    type: INCREMENT_TURNS,
     payload: {
-      board,
-      player
+      turns
     }
   };
 };
