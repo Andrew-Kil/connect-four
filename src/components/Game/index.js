@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { playTurn, endTurn, newGame, incrementTurns } from "../../actions";
+import {
+  playTurn,
+  endTurn,
+  newGame,
+  incrementTurns,
+  resetTurns
+} from "../../actions";
 import { isWinner, isTie, isColumnAvailable } from "../../utils";
 import s from "./game.module.css";
 
@@ -25,8 +31,9 @@ class Game extends Component {
   };
 
   handleNewGameClick = () => e => {
-    const { newGame } = this.props;
+    const { newGame, resetTurns } = this.props;
     newGame();
+    resetTurns();
   };
 
   checkBoardForWinner = (board, player) => {
@@ -98,6 +105,9 @@ const mapDispatchToProps = dispatch => ({
   },
   incrementTurns: turns => {
     dispatch(incrementTurns(turns));
+  },
+  resetTurns: turns => {
+    dispatch(resetTurns(turns));
   }
 });
 
