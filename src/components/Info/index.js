@@ -15,7 +15,6 @@ class Info extends Component {
     const { player, turns } = this.props;
     return (
       <div className="jumbotron bg-dark text-white rounded-0">
-        <img src={"/assets/squid-game-img.jpeg"} alt="squid game art" />
         <h1 className="display-4">Connect 4</h1>
         <button
           type="button"
