@@ -1,6 +1,7 @@
 .boardGrid {
-  background-color: #2774f8;
+  background-color: #bec7cf;
   width: 35%;
+  max-width: 500px;
   margin: auto;
   padding: 20px;
   border: 2px solid black;
@@ -16,8 +17,7 @@
 }
 
 .circle {
-  background-color: white;
-  border: 2px solid black;
+  background-color: #ffffff;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -29,23 +29,15 @@
 }
 
 .free {
-  background-color: white;
+  background-color: #ffffff;
 }
 
-.red {
-  background-color: red;
+.staff {
+  background-color: #ad0a41;
 }
 
-.red:hover {
-  background-color: red;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.yellow:hover {
-  background-color: yellow;
+.contestant {
+  background-color: #01373d;
 }
 
 .newGameButton {

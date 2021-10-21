@@ -5,22 +5,16 @@ import {
   endTurn,
   newGame,
   incrementTurns,
-  resetTurns
+  resetTurns,
 } from "../../actions";
 import { isWinner, isTie, isColumnAvailable } from "../../utils";
 import s from "./game.module.css";
 
 class Game extends Component {
-  handleCircleClick = idx => async e => {
+  handleCircleClick = (idx) => async (e) => {
     e.preventDefault();
-    const {
-        player,
-        board,
-        playTurn,
-        endTurn,
-        turns,
-        incrementTurns
-      } = this.props,
+    const { player, board, playTurn, endTurn, turns, incrementTurns } =
+        this.props,
       currentPlayer = player;
     if (!isColumnAvailable(board, idx)) return;
     await playTurn(currentPlayer, idx);
@@ -30,7 +24,7 @@ class Game extends Component {
     endTurn(currentPlayer);
   };
 
-  handleNewGameClick = () => e => {
+  handleNewGameClick = () => (e) => {
     const { newGame, resetTurns } = this.props;
     newGame();
     resetTurns();
@@ -65,9 +59,9 @@ class Game extends Component {
                       spot === 0
                         ? `${s.free} ${s.circle}`
                         : spot === 1
-                        ? `${s.red} ${s.circle}`
+                        ? `${s.staff} ${s.circle}`
                         : spot === 2
-                        ? `${s.yellow} ${s.circle}`
+                        ? `${s.contestant} ${s.circle}`
                         : ""
                     }
                     onClick={this.handleCircleClick(spotIdx)}></span>
@@ -87,28 +81,28 @@ class Game extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   board: state.board,
   player: state.player,
-  turns: state.turns
+  turns: state.turns,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   playTurn: (player, column) => {
     dispatch(playTurn(player, column));
   },
-  endTurn: player => {
+  endTurn: (player) => {
     dispatch(endTurn(player));
   },
   newGame: (board, player) => {
     dispatch(newGame(board, player));
   },
-  incrementTurns: turns => {
+  incrementTurns: (turns) => {
     dispatch(incrementTurns(turns));
   },
-  resetTurns: turns => {
+  resetTurns: (turns) => {
     dispatch(resetTurns(turns));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
