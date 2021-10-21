@@ -73,7 +73,7 @@ class Game extends Component {
         <button
           type="button"
           onClick={this.handleNewGameClick()}
-          className={`${s.newGameButton} btn btn-primary`}>
+          className={`${s.newGameButton} btn btn-dark`}>
           New Game
         </button>
       </>

@@ -4,9 +4,9 @@ import s from "./info.module.css";
 
 class Info extends Component {
   state = {
-    showInfoText: false
+    showInfoText: false,
   };
-  toggleClass = () => e => {
+  toggleClass = () => (e) => {
     const currState = this.state.showInfoText;
     this.setState({ showInfoText: !currState });
   };
@@ -15,10 +15,11 @@ class Info extends Component {
     const { player, turns } = this.props;
     return (
       <div className="jumbotron bg-dark text-white rounded-0">
+        <img src={"/assets/squid-game-img.jpeg"} alt="squid game art" />
         <h1 className="display-4">Connect 4</h1>
         <button
           type="button"
-          className={`btn btn-info`}
+          className={`btn btn-secondary`}
           onClick={this.toggleClass()}>
           Info
         </button>
@@ -43,9 +44,9 @@ class Info extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   player: state.player,
-  turns: state.turns
+  turns: state.turns,
 });
 
 export default connect(mapStateToProps)(Info);
